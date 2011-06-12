@@ -47,3 +47,34 @@
 
 (define (cbrt x)
   (cbrt-iter 1.0 x))
+
+;; Exercise 1.11
+;; recursive
+(define (f n)
+    (cond ((< n 3) n)
+          (else (+ (f (- n 1))  
+                   (* 2
+                      (f (- n 2)))
+                   (* 3
+                      (f (- n 3)))))))
+
+;; iterative
+(define (f-iter a b c count)
+    (cond ((= count 0) a)
+          ((= count 1) b)
+          ((= count 2) c)
+          (else (f-iter b 
+                        c 
+                        (+ c
+                           (* 2 b)
+                           (* 3 a))
+                        (- count 1)))))
+(define (f n)
+    (f-iter 0 1 2 n))
+
+
+
+
+
+
+
