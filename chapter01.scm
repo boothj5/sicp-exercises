@@ -72,8 +72,14 @@
 (define (f n)
     (f-iter 0 1 2 n))
 
-
-
+;; Exercise 1.12
+(define (pascals row col)
+    (cond ((= col 1) 1)
+          ((= col row) 1 )
+          (else (+ (pascals (- row 1) 
+                            (- col 1))
+                   (pascals (- row 1) 
+                            col)))))
 
 
 
